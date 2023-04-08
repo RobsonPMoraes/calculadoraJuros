@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juros</title>
+  </head>
+
+  <style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+    body{
+        background: linear-gradient(-90deg,#a5bff8, #4573d8);
+
+    }
+    .calcPct{
+        width:48%;
+        padding: 10px;
+        margin: 80px auto;
+        border: 1px solid rgb(74, 54, 54);
+        line-height:50px;
+        text-align: center;
+        background: linear-gradient(-75deg, #4573d8, #a5bff8);
+        border-radius: 20px;
+        float: left;
+    }
+    .calc2{
+        background: linear-gradient(75deg, #4573d8, #a5bff8);
+
+    }
+    #calcular{
+        padding: 10px 15px;
+        font-weight: bold;
+        font-size: 18px;
+        border-radius:20px;
+        background: #808dea;
+        cursor: pointer;
+    }
+    #calcular:hover{
+        background:#f4b16D;
+        color:#000;
+    }
+    #total{
+        font-size: 30px;
+    }
+    .container{
+        width:80%;
+        margin: 20px auto;
+        line-height: 30px;
+
+    }
+    .container p{
+        font-size:18px;
+        color: #fff;
+        letter-spacing: 2px;
+    }
+    #total,
+    #total2{
+        font-size: 30px;
+    }
+    input{
+        font-size:18px;
+        border-radius:10px;
+        padding:10px;
+    }
+    .calc2{
+        margin-left: 20px;
+    }
+    
+  </style>
+  <body>
+    <div class="container">
+      <!-- <h1 style="text-align: center; font-size: 50px; padding-top: 20px;"> Por favor, selecione uma das calculadoras</h1> -->
+      <div class="text">
+        <p>
+          Para descobrir a porcentagem de qualquer número, primeiro insira um
+          valor cheio na primeira caixa. Ex. 1000
+        </p>
+        <p>
+          Depois insira o valor um valor na segunda caixa. (este é a porcentagem
+          que deseja descobrir). Ex. 20
+        </p>
+        <p>
+          Entende-se no exemplo proposto que você quer descobrir quanto é 20% de
+          1000.
+        </p>
+      </div>
+      <!-- <div class="text2">
+            <p>Para descobrir a porcentagem de qualquer número, primeiro insira um valor cheio na primeira caixa. Ex. 1000</p>
+            <p>Depois insira o valor um valor na segunda caixa. (este valor mostrará qual a equivalência em porcentagem). Ex. 280</p>
+        <p>Entende-se no exemplo proposto que você quer descobrir quantos porcentos euivale a 280 de 1000.</p>
+    </div> -->
+      <br />
+      <hr />
+      <br />
+      <div class="calcPct" onclick="selecao()">
+        <h1>Calculadora de percentagem</h1>
+        <label for="n1">Insira um valor</label>
+        <br />
+        <input
+          type="number"
+          name="n1"
+          id="n1"
+          placeholder="Insira um valor cheio"
+        />
+        <br />
+        <label for="n2" id="percento">Qual valor em percentagem?</label>
+        <br />
+        <input type="number" name="n2" id="n2" />
+        <br />
+        <label for="result" id="total">Total:</label>
+        <br />
+        <input
+          type="submit"
+          value="Calcular"
+          id="calcular"
+          onclick="calcular()"
+        />
+      </div>
+
+      <div class="calcPct calc2">
+        <h1>Calculadora de percentagem</h1>
+        <label for="n1">Insira um valor</label>
+        <br />
+        <input
+          type="number"
+          name="n3"
+          id="n3"
+          placeholder="Insira um valor cheio"
+        />
+        <br />
+        <label for="n2" id="percento"
+          >Qual valor quer converter em porcentagem?</label
+        >
+        <br />
+        <input type="number" name="n4" id="n4" />
+        <br />
+        <label for="result" id="total2">Total:</label>
+        <br />
+        <input
+          type="submit"
+          value="Calcular"
+          id="calcular"
+          onclick="calcular2()"
+        />
+      </div>
+    </div>
+
+    <script>
+      function calcular() {
+        let n1 = document.querySelector("#n1");
+        let n2 = document.querySelector("#n2");
+
+        var num1 = Number(n1.value);
+        var num2 = Number(n2.value);
+        var resultado = (num1 * num2) / 100;
+
+        total.innerHTML = `${num2}% de ${num1} é igual a ${resultado}.`;
+        ("<br>");
+
+        if (num1 == "" || num2 == "") {
+          total.innerHTML = `Por favor digite um valor válido!`;
+        }
+      }
+      function calcular2() {
+        let n3 = document.querySelector("#n3");
+        let n4 = document.querySelector("#n4");
+
+        var num3 = Number(n3.value);
+        var num4 = Number(n4.value);
+        var resultado2 = (num4 * 100) / num3;
+
+        total2.innerHTML = `${num4} de ${num3} equivale a ${resultado2}%.`;
+        ("<br>");
+        if (num3 == "" || num4 == "") {
+          total2.innerHTML = `Por favor digite um valor válido!`;
+        }
+      }
+    </script>
+  </body>
+</html>
